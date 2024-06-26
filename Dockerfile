@@ -1,7 +1,8 @@
-FROM python:3.9-slim-buster
+# Use the Nano Server base image from Microsoft
+FROM mcr.microsoft.com/windows/nanoserver:1809
 
-WORKDIR /app
+# Set the working directory inside the container
+WORKDIR C:/app
 
-ADD . /app
-
-CMD [ "python", "-c", "print('Hello, World!')" ]
+# Command to run the PowerShell script
+CMD ["powershell.exe", "-Command", "Write-Output 'Hello, World!'"]
